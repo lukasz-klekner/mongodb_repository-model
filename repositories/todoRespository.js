@@ -1,3 +1,4 @@
+const { ObjectId } = require("mongodb");
 const { TodoRecord } = require("../records/todoRecord");
 const { todos } = require("../utils/db");
 
@@ -6,6 +7,12 @@ class TodoRepository {
         if(!(record instanceof TodoRecord)){
             throw new Error("Record must be an instance of TodoRecord")
         }
+    }
+
+    static async find(id){
+        return await todos.findOne({
+            _id: new ObjectId(String(id))
+        })
     }
 
     static async findAll(){
