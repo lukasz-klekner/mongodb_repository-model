@@ -5,6 +5,8 @@ class TodoRecord {
     constructor({ _id, title}){
         this._id = new ObjectId(_id);
         this.title = title;
+
+        this._validate()
     }
 
     _validate(){

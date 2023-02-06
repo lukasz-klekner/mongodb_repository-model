@@ -11,7 +11,11 @@ const { client } = require('./utils/db');
 
         // await TodoRepository.insert(todo)
         // console.log(todo)
-        console.log(await TodoRepository.find("63e134d256497c0170627c2c"))
+
+        const todo = await TodoRepository.find("63e134d256497c0170627c2c")
+        todo.title = 'Finish off creating CRUD :-)'
+        await TodoRepository.update(todo)
+        // console.log(await TodoRepository.find("63e134d256497c0170627c2c"))
         
 
     } finally {
