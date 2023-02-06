@@ -37,6 +37,14 @@ class TodoRepository {
             title: String(record.title)
         })
     }
+
+    static async delete(record){
+        // TodoRepository._checkRecord(record)
+
+        await todos.deleteOne({
+            _id: record._id
+        })
+    }
 }
 
 module.exports = {
