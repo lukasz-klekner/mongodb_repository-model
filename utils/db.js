@@ -11,6 +11,7 @@ const db = client.db(dbName);
 const todos = db.collection('todos')
 
 module.exports = {
+    client,
     db,
-    todos
+    todos,
 }
