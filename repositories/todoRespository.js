@@ -11,6 +11,15 @@ class TodoRepository {
     static async findAll(){
         return (await todos.find()).toArray()
     }
+
+    static async insert(record){
+        TodoRepository._checkRecord(record)
+
+        const { insertedId } = await todos.insertOne(record)
+        record._id = insertedId
+
+        return insertedId
+    }
 }
 
 module.exports = {

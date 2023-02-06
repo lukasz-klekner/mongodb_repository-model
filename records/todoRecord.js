@@ -1,17 +1,16 @@
+const { ObjectId } = require("mongodb");
 const { ValidationError } = require("../utils/errors");
 
 class TodoRecord {
-    constructor({ id, title}){
-        if(!id || typeof id !== 'string'){
-            throw new ValidationError('id must be an unempty string');
-        }
+    constructor({ _id, title}){
+        this._id = new ObjectId(_id);
+        this.title = title;
+    }
 
-        if(!title || typeof name !== 'string'){
+    _validate(){
+        if(!title || typeof title !== 'string'){
             throw new ValidationError('TodoRecord title must be an unempty string');
         }
-
-        this.id = id;
-        this.title = title;
     }
 }
 
